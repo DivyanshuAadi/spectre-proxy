@@ -1,0 +1,150 @@
+/* ==========================================================================
+   Spectre Proxy — Theme & Design Tokens
+   Obsidian Kinetic Dark Theme with Neon-Lime & Electric Cyan Accents
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Obsidian Base & Charcoal Surfaces */
+  --bg-base: #0a0c0e;
+  --bg-surface-0: #0d1015;
+  --bg-surface-1: #12151b;
+  --bg-surface-2: #181d24;
+  --bg-surface-3: #202630;
+  --bg-surface-hover: #262c37;
+  --bg-surface-active: #2e3543;
+  --bg-overlay: rgba(10, 12, 14, 0.82);
+  --bg-glass: rgba(18, 21, 27, 0.75);
+
+  /* Primary Neon-Lime Accents */
+  --accent-lime: #d2ff36;
+  --accent-lime-hover: #e0ff66;
+  --accent-lime-dim: rgba(210, 255, 54, 0.15);
+  --accent-lime-glow: rgba(210, 255, 54, 0.35);
+  --accent-lime-border: rgba(210, 255, 54, 0.4);
+  --accent-lime-text: #0a0c0e;
+
+  /* Secondary Electric Cyan Accents (Combos) */
+  --accent-cyan: #06b6d4;
+  --accent-cyan-hover: #22d3ee;
+  --accent-cyan-dim: rgba(6, 182, 212, 0.15);
+  --accent-cyan-glow: rgba(6, 182, 212, 0.35);
+  --accent-cyan-border: rgba(6, 182, 212, 0.4);
+
+  /* Status Colors */
+  --status-success: #10b981;
+  --status-success-dim: rgba(16, 185, 129, 0.14);
+  --status-success-glow: rgba(16, 185, 129, 0.3);
+  --status-success-border: rgba(16, 185, 129, 0.35);
+
+  --status-error: #f43f5e;
+  --status-error-hover: #fb7185;
+  --status-error-dim: rgba(244, 63, 94, 0.14);
+  --status-error-glow: rgba(244, 63, 94, 0.35);
+  --status-error-border: rgba(244, 63, 94, 0.35);
+
+  --status-warning: #f59e0b;
+  --status-warning-dim: rgba(245, 158, 11, 0.15);
+  --status-warning-border: rgba(245, 158, 11, 0.35);
+
+  --status-untested: #64748b;
+  --status-untested-dim: rgba(100, 116, 139, 0.15);
+  --status-untested-border: rgba(100, 116, 139, 0.25);
+
+  /* Text & Content Tokens */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-dim: #475569;
+  --text-inverse: #0a0c0e;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-medium: rgba(255, 255, 255, 0.12);
+  --border-bright: rgba(255, 255, 255, 0.2);
+
+  /* Typography */
+  --font-ui: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* Shadows & Glows */
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.6);
+  --shadow-lime: 0 0 18px rgba(210, 255, 54, 0.3);
+  --shadow-cyan: 0 0 18px rgba(6, 182, 212, 0.3);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Base resets & global styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 15px;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-base);
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(210, 255, 54, 0.06), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(6, 182, 212, 0.04), transparent 60%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* Custom Sleek Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-surface-3);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-dim);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--accent-lime);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: var(--accent-lime);
+  color: var(--bg-base);
+}

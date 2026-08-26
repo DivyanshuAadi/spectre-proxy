@@ -1,0 +1,15 @@
+services:
+  spectre-proxy:
+    build: .
+    container_name: spectre-proxy
+    ports:
+      - "3005:3005"
+    volumes:
+      - ./data:/app/data
+    environment:
+      # When Omniroute runs on the Docker host, use host.docker.internal.
+      - OMNIROUTE_URL=http://host.docker.internal:8000
+      - OMNIROUTE_API_KEY=${OMNIROUTE_API_KEY:-}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped

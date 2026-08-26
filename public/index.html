@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spectre Proxy — Model Visibility & Benchmark</title>
+  
+  <!-- Premium Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="genome.png">
+  <link rel="shortcut icon" type="image/png" href="genome.png">
+
+  <!-- Core Theme & Stylesheets -->
+  <link rel="stylesheet" href="css/theme.css?v=5">
+  <link rel="stylesheet" href="css/layout.css?v=5">
+  <link rel="stylesheet" href="css/components.css?v=5">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sticky Application Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="brand" id="brand-home-link" title="Spectre Proxy Dashboard">
+          <div class="brand-icon-wrapper">
+            <img src="genome.png" alt="Spectre Logo" width="22" height="22" style="display:block; object-fit:contain; filter:drop-shadow(0 0 6px rgba(210, 255, 54, 0.6));" />
+          </div>
+          <div class="brand-text">
+            <h1 class="brand-title">SPECTRE <span class="accent">PROXY</span></h1>
+            <span class="brand-subtitle">Model Visibility & Benchmark</span>
+          </div>
+        </div>
+
+        <!-- Live Connection Status Badge -->
+        <div class="header-status-badge" id="header-connection-badge">
+          <span class="status-pulse-dot pulse" id="header-status-dot"></span>
+          <span id="header-status-text">Online (14ms)</span>
+        </div>
+      </div>
+
+      <!-- Top Action Buttons -->
+      <div class="header-actions">
+        <!-- Refresh Models -->
+        <button class="btn btn-secondary" id="btn-header-refresh" title="Synchronize catalog from Omniroute">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+            <path d="M3 3v5h5"/>
+            <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+            <path d="M16 21h5v-5"/>
+          </svg>
+          <span>Refresh</span>
+        </button>
+
+        <!-- Benchmark / Test All -->
+        <button class="btn btn-outline-lime" id="btn-header-test-all" title="Open Benchmark & Health Console (Ctrl+B)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+          <span>Test All Models</span>
+        </button>
+
+        <!-- Quick Connect to Claude Code (Vibrant Neon Lime) -->
+        <button class="btn btn-primary" id="btn-header-quick-connect" title="View 1-click Claude Code export snippet">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+          <span>Quick Connect</span>
+        </button>
+
+        <!-- Settings -->
+        <button class="btn-icon" id="btn-header-settings" title="Configure Omniroute URL & Proxy Port">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Body -->
+    <main class="app-main">
+      <!-- 1. Top KPI Summary Tiles Row -->
+      <section class="kpi-grid" id="kpi-container">
+        <!-- Rendered by MetricCardsComponent -->
+      </section>
+
+      <!-- 2. Filter, Search & Bulk Action Toolbar -->
+      <section class="toolbar-container" id="filter-toolbar-container">
+        <!-- Rendered by FilterBarComponent -->
+      </section>
+
+      <!-- 3. Models Section Header -->
+      <div class="grid-section-header">
+        <h2 class="grid-section-title">
+          <span>AI Models & Routing Combos</span>
+          <span class="grid-count-badge" id="models-count-badge">Loading...</span>
+        </h2>
+      </div>
+
+      <!-- 4. Models Grid Container -->
+      <section class="model-cards-grid" id="model-cards-grid">
+        <!-- Rendered by Application & ModelCardComponent -->
+      </section>
+    </main>
+  </div>
+
+  <!-- Slide-out Testing Drawer & Backdrop -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="test-drawer" id="test-drawer">
+    <!-- Rendered by TestDrawerComponent -->
+  </aside>
+
+  <!-- Quick Connect Modal Overlay -->
+  <div class="modal-overlay" id="quick-connect-modal">
+    <!-- Rendered by QuickConnectModalComponent -->
+  </div>
+
+  <!-- Settings Modal Overlay -->
+  <div class="modal-overlay" id="settings-modal">
+    <!-- Rendered by SettingsModalComponent -->
+  </div>
+
+  <!-- Core Application Module -->
+  <script type="module" src="js/app.js?v=5"></script>
+</body>
+</html>

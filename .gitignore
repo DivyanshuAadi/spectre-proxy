@@ -1,0 +1,34 @@
+# Runtime Data & Storage (Local state / dynamic catalogs)
+data/
+*.db
+*.sqlite
+
+# Dependencies
+node_modules/
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Agent / AI Tooling Memory & Session Artifacts
+.remember/
+.claude/
+.agents/
+
+# Scratch & Temporary Planning Documents
+*PLAN.md
+your-task-is-to-*.md
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
